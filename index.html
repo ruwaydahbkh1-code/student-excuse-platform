@@ -4,17 +4,140 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>منصة الأعذار الطلابية - تسجيل الدخول</title>
-  <link rel="stylesheet" href="styles.css" />
+
+  <!-- CSS مدمج داخل الصفحة -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #6e8efb, #a777e3);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .background {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 40px 35px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      animation: fadeIn 1s ease-in-out;
+      text-align: center;
+    }
+
+    .title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #333;
+      text-align: center;
+      margin-bottom: 5px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: #777;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .input-group {
+      text-align: left;
+      margin-bottom: 18px;
+    }
+
+    .input-group label {
+      display: block;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 6px;
+    }
+
+    .input-group input, .input-group select {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .input-group input:focus, .input-group select:focus {
+      border-color: #6e8efb;
+      box-shadow: 0 0 4px rgba(110, 142, 251, 0.4);
+    }
+
+    .login-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #6e8efb, #a777e3);
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .login-btn:hover {
+      opacity: 0.9;
+    }
+
+    .footer-text {
+      margin-top: 20px;
+      font-size: 13px;
+      text-align: center;
+      color: #777;
+    }
+
+    .footer-text a {
+      color: #6e8efb;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .footer-text a:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="background">
     <div class="login-card">
-
       <h1 class="title">منصة الأعذار الطلابية</h1>
       <p class="subtitle">الرجاء تسجيل الدخول للمتابعة</p>
 
       <form>
-        <!-- اختيار الدور -->
         <div class="input-group">
           <label for="role">اختر الدور</label>
           <select id="role" class="input-select" required>
@@ -24,19 +147,16 @@
           </select>
         </div>
 
-        <!-- رقم الطالب أو الإيميل -->
         <div class="input-group">
           <label for="identifier">الرقم الجامعي أو البريد الإلكتروني</label>
           <input type="text" id="identifier" placeholder="Student ID أو Email" required />
         </div>
 
-        <!-- كلمة المرور -->
         <div class="input-group">
           <label for="password">كلمة المرور</label>
           <input type="password" id="password" placeholder="كلمة السر" required />
         </div>
 
-        <!-- زر الدخول -->
         <button type="submit" id="loginBtn" class="login-btn">دخول</button>
       </form>
 
