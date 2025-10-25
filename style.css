@@ -1,129 +1,140 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-
-* {
-  box-sizing: border-box;
+/* إعدادات عامة */
+body, html {
   margin: 0;
   padding: 0;
-}
-
-body {
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #6e8efb, #a777e3);
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.background {
-  width: 100%;
+  font-family: "Tajawal", sans-serif;
   height: 100%;
+}
+
+/* الخلفية المتدرجة السماوي - أبيض */
+.background {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom, #a0d8f1, #ffffff);
+  position: relative;
 }
 
+/* اسم المنصة أعلى اليمين */
+.platform-name {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #000000;
+  font-family: "Tajawal", sans-serif;
+}
+
+/* بطاقة تسجيل الدخول */
 .login-card {
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 20px;
-  padding: 40px 35px;
-  width: 100%;
-  max-width: 400px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  animation: fadeIn 1s ease-in-out;
+  background-color: #ffffff;
+  padding: 35px;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+  width: 350px;
   text-align: center;
+  border: 1px solid #e0e0e0;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 20px auto;
-  width: 90px;
-  height: auto;
-}
-
+/* العناوين */
 .title {
-  font-size: 24px;
-  font-weight: 600;
-  color: #333;
-  text-align: center;
   margin-bottom: 5px;
+  font-size: 24px;
+  color: #333;
+  font-weight: bold;
 }
 
 .subtitle {
+  margin-bottom: 20px;
   font-size: 14px;
-  color: #777;
-  text-align: center;
-  margin-bottom: 25px;
+  color: #666;
 }
 
+/* الحقول */
 .input-group {
-  text-align: left;
-  margin-bottom: 18px;
+  margin-bottom: 15px;
+  text-align: right;
+  position: relative;
 }
 
 .input-group label {
   display: block;
-  font-weight: 500;
-  color: #444;
-  margin-bottom: 6px;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
-.input-group input {
+.input-group input,
+.input-group select {
   width: 100%;
   padding: 10px 12px;
-  border-radius: 8px;
   border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
   font-size: 14px;
-  outline: none;
-  transition: 0.3s;
 }
 
-.input-group input:focus {
-  border-color: #6e8efb;
-  box-shadow: 0 0 4px rgba(110, 142, 251, 0.4);
+/* تحسين شكل الـ select */
+.input-group select {
+  -webkit-appearance: menulist;
+  -moz-appearance: menulist;
+  appearance: menulist;
+  cursor: pointer;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><polygon points='0,0 14,0 7,7' fill='%23999'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
 }
 
+/* زر إظهار كلمة المرور */
+.toggle-password {
+  position: absolute;
+  left: 8px;
+  top: 35px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* زر الدخول مع تدرج فاتح سماوي - أبيض */
 .login-btn {
   width: 100%;
-  background: linear-gradient(135deg, #6e8efb, #a777e3);
-  color: white;
-  border: none;
-  padding: 12px;
-  border-radius: 8px;
+  padding: 10px;
+  background: linear-gradient(to right, #92c5e7, #ffffff);
+  border: 1px solid #1d1d1d;
+  color: #000000;
   font-size: 16px;
-  font-weight: 600;
+  border-radius: 5px;
   cursor: pointer;
+  margin-top: 10px;
   transition: 0.3s;
+  font-weight: bold;
 }
 
-.login-btn:hover {
-  opacity: 0.9;
+.login-btn:disabled {
+  background-color: #bdbdbd;
+  cursor: not-allowed;
 }
 
+.login-btn:hover:not(:disabled) {
+  background: linear-gradient(to right, #87afcf, #e0f7ff);
+}
+
+/* رابط نسيت كلمة المرور */
 .footer-text {
-  margin-top: 20px;
-  font-size: 13px;
-  text-align: center;
-  color: #777;
+  margin-top: 15px;
+  font-size: 12px;
+  color: #999;
 }
 
 .footer-text a {
-  color: #6e8efb;
+  color: #000000;
   text-decoration: none;
-  font-weight: 500;
 }
 
 .footer-text a:hover {
   text-decoration: underline;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }

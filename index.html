@@ -4,143 +4,161 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>منصة الأعذار الطلابية - تسجيل الدخول</title>
-
-  <!-- CSS مدمج داخل الصفحة -->
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-
-    * {
-      box-sizing: border-box;
+    /* إعدادات عامة */
+    body, html {
       margin: 0;
       padding: 0;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #6e8efb, #a777e3);
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .background {
-      width: 100%;
+      font-family: "Tajawal", sans-serif;
       height: 100%;
+    }
+
+    /* الخلفية المتدرجة السماوي - أبيض */
+    .background {
       display: flex;
       justify-content: center;
       align-items: center;
+      height: 100vh;
+      background: linear-gradient(to bottom, #acc5e7, #ffffff);
+      position: relative;
     }
 
+    /* اسم المنصة أعلى اليمين */
+    .platform-name {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 30px;
+      font-weight: bold;
+      color: #000000;
+      font-family: "Tajawal", sans-serif;
+    }
+
+    /* بطاقة تسجيل الدخول */
     .login-card {
-      background: rgba(255, 255, 255, 0.95);
-      border-radius: 20px;
-      padding: 40px 35px;
-      width: 100%;
-      max-width: 400px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-      animation: fadeIn 1s ease-in-out;
+      background-color: #ffffff;
+      padding: 35px;
+      border-radius: 12px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+      width: 350px;
       text-align: center;
+      border: 1px solid #e0e0e0;
     }
 
+    /* العناوين */
     .title {
-      font-size: 24px;
-      font-weight: 600;
-      color: #333;
-      text-align: center;
       margin-bottom: 5px;
+      font-size: 24px;
+      color: #333;
+      font-weight: bold;
     }
 
     .subtitle {
+      margin-bottom: 20px;
       font-size: 14px;
-      color: #777;
-      text-align: center;
-      margin-bottom: 25px;
+      color: #666;
     }
 
+    /* الحقول */
     .input-group {
-      text-align: left;
-      margin-bottom: 18px;
+      margin-bottom: 15px;
+      text-align: right;
+      position: relative;
     }
 
     .input-group label {
       display: block;
-      font-weight: 500;
-      color: #444;
-      margin-bottom: 6px;
+      margin-bottom: 5px;
+      font-weight: bold;
     }
 
-    .input-group input, .input-group select {
+    .input-group input,
+    .input-group select {
       width: 100%;
       padding: 10px 12px;
-      border-radius: 8px;
       border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
       font-size: 14px;
-      outline: none;
-      transition: 0.3s;
     }
 
-    .input-group input:focus, .input-group select:focus {
-      border-color: #6e8efb;
-      box-shadow: 0 0 4px rgba(110, 142, 251, 0.4);
+    /* تحسين شكل الـ select */
+    .input-group select {
+      -webkit-appearance: menulist;
+      -moz-appearance: menulist;
+      appearance: menulist;
+      cursor: pointer;
+      background-color: #fff;
+      background-image: url("data:image/svg+xml;charset=US-ASCII,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><polygon points='0,0 14,0 7,7' fill='%23999'/></svg>");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      background-size: 12px;
     }
 
+    /* زر إظهار كلمة المرور */
+    .toggle-password {
+      position: absolute;
+      left: 8px;
+      top: 35px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    /* زر الدخول */
     .login-btn {
       width: 100%;
-      background: linear-gradient(135deg, #6e8efb, #a777e3);
-      color: white;
-      border: none;
-      padding: 12px;
-      border-radius: 8px;
+      padding: 10px;
+      background: linear-gradient(to right, #93b2e2, #ffffff);
+      border: 1px solid #000000;
+      color: #0d0d0e;
       font-size: 16px;
-      font-weight: 600;
+      border-radius: 5px;
       cursor: pointer;
+      margin-top: 10px;
       transition: 0.3s;
+      font-weight: bold;
     }
 
-    .login-btn:hover {
-      opacity: 0.9;
+    .login-btn:disabled {
+      background-color: #bdbdbd;
+      cursor: not-allowed;
     }
 
+    .login-btn:hover:not(:disabled) {
+      background: linear-gradient(to right, #8bbce4, #e0f7ff);
+    }
+
+    /* رابط نسيت كلمة المرور */
     .footer-text {
-      margin-top: 20px;
-      font-size: 13px;
-      text-align: center;
-      color: #777;
+      margin-top: 15px;
+      font-size: 12px;
+      color: #999;
     }
 
     .footer-text a {
-      color: #6e8efb;
+      color: #000000;
       text-decoration: none;
-      font-weight: 500;
     }
 
     .footer-text a:hover {
       text-decoration: underline;
     }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
   </style>
 </head>
 <body>
   <div class="background">
+    <div class="platform-name">منصة عُذر+</div>
     <div class="login-card">
       <h1 class="title">منصة الأعذار الطلابية</h1>
       <p class="subtitle">الرجاء تسجيل الدخول للمتابعة</p>
 
-      <form>
+      <form id="loginForm" method="POST" action="login.php">
         <div class="input-group">
           <label for="role">اختر الدور</label>
-          <select id="role" class="input-select" required>
+          <select id="role" name="role" required>
+            <option value="">-- اختر الدور --</option>
             <option value="student">طالب</option>
             <option value="faculty">دكتور</option>
             <option value="staff">شؤون الطلاب</option>
@@ -149,15 +167,16 @@
 
         <div class="input-group">
           <label for="identifier">الرقم الجامعي أو البريد الإلكتروني</label>
-          <input type="text" id="identifier" placeholder="Student ID أو Email" required />
+          <input type="text" id="identifier" name="identifier" required />
         </div>
 
-        <div class="input-group">
+        <div class="input-group password-group">
           <label for="password">كلمة المرور</label>
-          <input type="password" id="password" placeholder="كلمة السر" required />
+          <input type="password" id="password" name="password" required />
+          <button type="button" id="togglePassword" class="toggle-password">👁</button>
         </div>
 
-        <button type="submit" id="loginBtn" class="login-btn">دخول</button>
+        <button type="submit" id="loginBtn" class="login-btn" disabled>دخول</button>
       </form>
 
       <p class="footer-text">
@@ -165,5 +184,35 @@
       </p>
     </div>
   </div>
+
+  <script>
+    const loginBtn = document.getElementById('loginBtn');
+    const loginForm = document.getElementById('loginForm');
+    const inputs = loginForm.querySelectorAll('input, select');
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('password');
+
+    // تفعيل زر الدخول عند ملء الحقول
+    function checkInputs() {
+      let filled = true;
+      inputs.forEach(input => {
+        if (!input.value) filled = false;
+      });
+      loginBtn.disabled = !filled;
+    }
+
+    inputs.forEach(input => input.addEventListener('input', checkInputs));
+    inputs.forEach(input => input.addEventListener('change', checkInputs));
+
+    // زر إظهار كلمة المرور
+    togglePassword.addEventListener('click', () => {
+      passwordInput.type = passwordInput.type === "password" ? "text" : "password";
+    });
+
+    // منع إعادة تحميل الصفحة عند الضغط على دخول
+    loginForm.addEventListener('submit', (e) => {
+      // البيانات الآن ترسل login.php لذا يمكن إزالة الـ alert التجريبي
+    });
+  </script>
 </body>
 </html>
